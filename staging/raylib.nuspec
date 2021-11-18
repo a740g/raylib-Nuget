@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>raylib</id>
+    <version>4.0.0.0</version>
+    <title>raylib Game Programming Library</title>
+    <authors>Ramon Santamaria, and contributors</authors>
+    <owners>Samuel Gomes</owners>
+    <license type="expression">Zlib</license>
+    <projectUrl>https://www.raylib.com/</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/raysan5/raylib/master/logo/raylib_48x48.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>raylib is a simple and easy-to-use library to enjoy videogames programming. raylib is highly inspired by Borland BGI graphics lib and by XNA framework and it's specially well suited for prototyping, tooling, graphical applications, embedded systems and education. NOTE for ADVENTURERS: raylib is a programming library to enjoy videogames programming; no fancy interface, no visual helpers, no debug button... just coding in the most pure spartan-programmers way.</description>
+    <summary>This software is provided "as-is", without any express or implied warranty. In no event will the authors be held liable for any damages arising from the use of this software.</summary>
+    <releaseNotes>Please refer to the online release notes at https://raw.githubusercontent.com/raysan5/raylib/master/CHANGELOG</releaseNotes>
+    <copyright>Copyright (c) 2013-2021 Ramon Santamaria (@raysan5)</copyright>
+    <language>en-US</language>
+    <tags>Native</tags>
+  </metadata>
+  <files>
+    <file src="raylib.targets" target="build\native\raylib.targets" />
+    <file src="raylibUI.xml" target="build\native\raylibUI.xml" />
+    <file src="README.md" target="build\native\README.md" />
+    <file src="LICENSE" target="build\native\LICENSE" />
+    <file src="include\**\*.*" target="build\native\include" />
+    <file src="lib\**\*.*" target="build\native\lib" />
+  </files>
+</package>
