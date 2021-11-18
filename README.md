@@ -1,6 +1,6 @@
 # raylib Nuget package
 
-This is a [Nuget package](https://www.nuget.org/packages/raylib/) for the polular [raylib](https://www.raylib.com/) video game programming library.
+This is a [Nuget package](https://www.nuget.org/packages/raylib/) for the popular [raylib](https://www.raylib.com/) video game programming library.
 
 Resources used to create this package are as follows:
 - https://docs.microsoft.com/en-us/nuget/guides/native-packages
