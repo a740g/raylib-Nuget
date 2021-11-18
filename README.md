@@ -3,6 +3,7 @@
 raylib website: https://www.raylib.com/
 
 Resources used to create this package are follows:
+
 https://docs.microsoft.com/en-us/nuget/guides/native-packages
 https://devblogs.microsoft.com/cppblog/nuget-for-c/
 https://github.com/NuGetPackageExplorer/NuGetPackageExplorer
