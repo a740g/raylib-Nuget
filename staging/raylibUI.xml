@@ -7,7 +7,7 @@
     <DataSource Persistence="ProjectFile" ItemType="" />
   </Rule.DataSource>
   <EnumProperty Name="raylib_LibraryType" DisplayName="Library Type" Description="Select which library to link to" Category="LibraryType" Default="StaticMonolithRelease">
-    <EnumValue Name="StaticMonolithRelease" DisplayName="Static Release" />
-    <EnumValue Name="DynamicRelease" DisplayName="Dynamic Release" />
+    <EnumValue Name="StaticMonolithRelease" DisplayName="Static" />
+    <EnumValue Name="DynamicRelease" DisplayName="Dynamic" />
   </EnumProperty>
 </Rule>
