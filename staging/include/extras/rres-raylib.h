@@ -4,7 +4,7 @@
 *
 *   LICENSE: zlib/libpng
 *
-*   Copyright (c) 2020-2021 Ramon Santamaria (@raysan5)
+*   Copyright (c) 2020-2022 Ramon Santamaria (@raysan5)
 *
 *   This software is provided "as-is", without any express or implied warranty. In no event
 *   will the authors be held liable for any damages arising from the use of this software.
@@ -45,14 +45,14 @@
 // Module Functions Declaration
 //----------------------------------------------------------------------------------
 
-RRESDEF void *rresLoadRaw(rresData rres, int *size);
-RRESDEF char *rresLoadText(rresData rres);
-RRESDEF Image rresLoadImage(rresData rres);
-RRESDEF Wave rresLoadWave(rresData rres);
-RRESDEF Font rresLoadFont(rresData rres);
-RRESDEF Mesh rresLoadMesh(rresData rres);
-RRESDEF Material rresLoadMaterial(rresData rres);
-RRESDEF Model rresLoadModel(rresData rres);
+RRESAPI void *rresLoadRaw(rresData rres, int *size);
+RRESAPI char *rresLoadText(rresData rres);
+RRESAPI Image rresLoadImage(rresData rres);
+RRESAPI Wave rresLoadWave(rresData rres);
+RRESAPI Font rresLoadFont(rresData rres);
+RRESAPI Mesh rresLoadMesh(rresData rres);
+RRESAPI Material rresLoadMaterial(rresData rres);
+RRESAPI Model rresLoadModel(rresData rres);
 
 #endif // RRES_RAYLIB_H
 
@@ -135,12 +135,12 @@ Wave rresLoadWave(rresData rres)
 
     if ((rres.count >= 1) && (rres.chunks[0].type == RRES_DATA_WAVE))
     {
-        wave.sampleCount = rres.chunks[0].props[0];
+        wave.frameCount = rres.chunks[0].props[0];
         wave.sampleRate = rres.chunks[0].props[1];
         wave.sampleSize = rres.chunks[0].props[2];
         wave.channels = rres.chunks[0].props[3];
 
-        unsigned int size = wave.sampleCount*wave.sampleSize/8;
+        unsigned int size = wave.frameCount*wave.sampleSize/8;
         wave.data = RL_MALLOC(size);
         memcpy(wave.data, rres.chunks[0].data, size);
     }

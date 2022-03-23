@@ -38,7 +38,7 @@
 *
 *   LICENSE: zlib/libpng
 *
-*   Copyright (c) 2016-2021 Ramon Santamaria (@raysan5)
+*   Copyright (c) 2016-2022 Ramon Santamaria (@raysan5)
 *
 *   This software is provided "as-is", without any express or implied warranty. In no event
 *   will the authors be held liable for any damages arising from the use of this software.
@@ -264,6 +264,9 @@ typedef enum {
 } rresCompressionType;
 
 // Encryption types
+// TODO: REVIEW: Encryption algorythm could require additional data chunks
+// TODO: Hash algorythms to verify data integrity: CRC32, MD5, SHA-3, BLAKE2b...
+// TODO: Do we really need to encrypt the data for a videogame??? Probably not...
 typedef enum {
     RRES_CRYPTO_NONE = 0,       // No data encryption
     RRES_CRYPTO_XOR,            // XOR (128 bit) encryption
