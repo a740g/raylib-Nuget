@@ -4,14 +4,14 @@
     <id>raylib</id>
     <version>4.0.0.6</version>
     <title>raylib Game Programming Library</title>
-    <authors>Ramon Santamaria, and contributors</authors>
+    <authors>Ramon Santamaria, Rob Loach, Samuel Gomes and contributors</authors>
     <owners>Samuel Gomes</owners>
     <license type="file">build\native\LICENSE</license>
-    <projectUrl>https://www.raylib.com/</projectUrl>
+    <projectUrl>https://github.com/a740g/raylib-Nuget</projectUrl>
     <icon>build\native\raylib_128x128.png</icon>
     <iconUrl>https://raw.githubusercontent.com/raysan5/raylib/master/logo/raylib_128x128.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>raylib is a simple and easy-to-use library to enjoy videogames programming. raylib is highly inspired by Borland BGI graphics lib and by XNA framework and it's specially well suited for prototyping, tooling, graphical applications, embedded systems and education. NOTE for ADVENTURERS: raylib is a programming library to enjoy videogames programming; no fancy interface, no visual helpers, no debug button... just coding in the most pure spartan-programmers way.</description>
+    <description>raylib is a simple and easy-to-use library to enjoy videogames programming. raylib is highly inspired by Borland BGI graphics lib and by XNA framework and it's specially well suited for prototyping, tooling, graphical applications, embedded systems and education. NOTE for ADVENTURERS: raylib is a programming library to enjoy videogames programming; no fancy interface, no visual helpers, no debug button... just coding in the most pure spartan-programmers way. This package also includes raylib-cpp (a C++ wrapper library for raylib). This C++ header provides object-oriented wrappers around raylib's struct interfaces. raylib-cpp is not required to use raylib in C++, but the classes do bring using the raylib API more inline with C++'s language paradigm.</description>
     <readme>build\native\README.md</readme>
     <summary>This software is provided "as-is", without any express or implied warranty. In no event will the authors be held liable for any damages arising from the use of this software.</summary>
     <releaseNotes>Please refer to the online release notes at https://raw.githubusercontent.com/raysan5/raylib/master/CHANGELOG</releaseNotes>
