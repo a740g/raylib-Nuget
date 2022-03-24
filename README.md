@@ -1,4 +1,4 @@
-# raylib Nuget package
+# raylib Nuget Package
 
 This is the [Nuget package](https://www.nuget.org/packages/raylib/) for [raylib](https://www.raylib.com/) (a popular video game programming library) by [Ramon Santamaria](https://github.com/raysan5). raylib is a simple and easy-to-use library to enjoy videogames programming. raylib is highly inspired by Borland BGI graphics lib and by XNA framework and it's specially well suited for prototyping, tooling, graphical applications, embedded systems and education. NOTE for ADVENTURERS: raylib is a programming library to enjoy videogames programming; no fancy interface, no visual helpers, no debug button... just coding in the most pure spartan-programmers way.
 
