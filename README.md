@@ -1,8 +1,9 @@
 # raylib Nuget Package
 
-This is the [Nuget package](https://www.nuget.org/packages/raylib/) for [raylib](https://www.raylib.com/) (a popular video game programming library) by [Ramon Santamaria](https://github.com/raysan5). raylib is a simple and easy-to-use library to enjoy videogames programming. raylib is highly inspired by Borland BGI graphics lib and by XNA framework and it's specially well suited for prototyping, tooling, graphical applications, embedded systems and education. NOTE for ADVENTURERS: raylib is a programming library to enjoy videogames programming; no fancy interface, no visual helpers, no debug button... just coding in the most pure spartan-programmers way.
+This is the [Nuget package](https://www.nuget.org/packages/raylib/) for [raylib](https://github.com/raysan5/raylib) (a popular video game programming library) by [Ramon Santamaria](https://github.com/raysan5). [raylib](https://www.raylib.com) is a simple and easy-to-use library to enjoy videogames programming. It is highly inspired by Borland BGI graphics lib and by XNA framework and it's specially well suited for prototyping, tooling, graphical applications, embedded systems and education.
+NOTE for ADVENTURERS: raylib is a programming library to enjoy videogames programming; no fancy interface, no visual helpers, no debug button... just coding in the most pure spartan-programmers way.
 
-This package also includes [raylib-cpp](https://robloach.github.io/raylib-cpp/) (a C++ wrapper library for raylib) by [Rob Loach](https://github.com/RobLoach). This C++ header provides object-oriented wrappers around raylib's struct interfaces. raylib-cpp is not required to use raylib in C++, but the classes do bring using the raylib API more inline with C++'s language paradigm.
+This package also includes [raylib-cpp](https://github.com/RobLoach/raylib-cpp) (a C++ wrapper library for raylib) by [Rob Loach](https://github.com/RobLoach). This C++ header provides object-oriented wrappers around raylib's struct interfaces. [raylib-cpp](https://robloach.github.io/raylib-cpp) is not required to use raylib in C++, but the classes do bring using the raylib API more inline with C++'s language paradigm.
 
 Resources used to create this package are as follows:
 
