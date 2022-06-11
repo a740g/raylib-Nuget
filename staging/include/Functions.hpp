@@ -61,6 +61,13 @@ RLCPPAPI inline void TakeScreenshot(const std::string& fileName) {
 }
 
 /**
+ * Get gamepad internal name id
+ */
+RLCPPAPI inline std::string GetGamepadName(int gamepad) {
+    return ::GetGamepadName(gamepad);
+}
+
+/**
  * Load text data from file (read)
  */
 [[maybe_unused]]
@@ -264,6 +271,20 @@ RLCPPAPI inline void DrawTextEx(const Font& font, const std::string& text, Vecto
 RLCPPAPI inline void DrawTextPro(const Font& font, const std::string& text, Vector2 position,
         Vector2 origin, float rotation, float fontSize, float spacing, ::Color tint) {
     ::DrawTextPro(font, text.c_str(), position, origin, rotation, fontSize, spacing, tint);
+}
+
+/**
+ * Load font from file (filename must include file extension)
+ */
+RLCPPAPI inline ::Font LoadFont(const std::string& fileName) {
+    return ::LoadFont(fileName.c_str());
+}
+
+/**
+ * Load font from file (filename must include file extension)
+ */
+RLCPPAPI inline ::Font LoadFontEx(const std::string& fileName, int fontSize, int *fontChars, int charsCount) {
+    return ::LoadFontEx(fileName.c_str(), fontSize, fontChars, charsCount);
 }
 
 /**

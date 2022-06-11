@@ -421,7 +421,7 @@ typedef struct {
 //----------------------------------------------------------------------------------
 // Global Variables Definition
 //----------------------------------------------------------------------------------
-const char png_signature[8] = { 0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a }; // PNG Signature
+const unsigned char png_signature[8] = { 0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a }; // PNG Signature
 
 //----------------------------------------------------------------------------------
 // Module specific Functions Declaration
@@ -440,7 +440,7 @@ static bool file_exists(const char *filename);                      // Check if 
 
 //===================================================================
 //                              SDEFL
-// DEFLATE COMPRESSION algorythm: https://github.com/vurtun/sdefl
+// DEFLATE COMPRESSION algorithm: https://github.com/vurtun/sdefl
 //===================================================================
 #define SDEFL_MAX_OFF   (1 << 15)
 #define SDEFL_WIN_SIZ   SDEFL_MAX_OFF
@@ -498,7 +498,7 @@ extern int zsdeflate(struct sdefl* s, void* o, const void* i, int n, int lvl);
 
 //=========================================================================
 //                           SINFL
-// DEFLATE DECOMPRESSION algorythm: https://github.com/vurtun/lib/sinfl.h
+// DEFLATE DECOMPRESSION algorithm: https://github.com/vurtun/lib/sinfl.h
 //=========================================================================
 #define SINFL_PRE_TBL_SIZE 128
 #define SINFL_LIT_TBL_SIZE 1334
@@ -1961,7 +1961,7 @@ static bool file_exists(const char *filename)
 
 //=========================================================================
 //                              SDEFL
-// DEFLATE COMPRESSION algorythm: https://github.com/vurtun/lib/sdefl.h
+// DEFLATE COMPRESSION algorithm: https://github.com/vurtun/lib/sdefl.h
 //=========================================================================
 #ifdef SDEFL_IMPLEMENTATION
 
@@ -2492,7 +2492,7 @@ sdefl_bound(int len) {
 
 //=========================================================================
 //                           SINFL
-// DEFLATE DECOMPRESSION algorythm: https://github.com/vurtun/lib/sinfl.h
+// DEFLATE DECOMPRESSION algorithm: https://github.com/vurtun/lib/sinfl.h
 //=========================================================================
 #ifdef SINFL_IMPLEMENTATION
 

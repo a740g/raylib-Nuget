@@ -52,7 +52,7 @@ class Font : public ::Font {
      *
      * @see ::LoadFontEx
      */
-    Font(const std::string& fileName, int fontSize, int* fontChars, int charCount)  {
+    Font(const std::string& fileName, int fontSize, int* fontChars = 0, int charCount = 0)  {
         if (!Load(fileName, fontSize, fontChars, charCount)) {
             throw RaylibException("Failed to load font from font with extras");
         }
@@ -116,13 +116,14 @@ class Font : public ::Font {
     GETTERSETTER(::GlyphInfo*, Glyphs, glyphs)
 
     Font& operator=(const ::Font& font) {
+        Unload();
         set(font);
         return *this;
     }
 
     Font& operator=(const Font&) = delete;
 
-    Font& operator=(Font&& other) {
+    Font& operator=(Font&& other) noexcept {
         if (this == &other) {
             return *this;
         }

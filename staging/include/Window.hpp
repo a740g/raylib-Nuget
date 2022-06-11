@@ -266,7 +266,7 @@ class Window {
     /**
      * Get the screen's width and height.
      */
-    inline Vector2 GetSize() {
+    inline Vector2 GetSize() const {
         return {static_cast<float>(GetWidth()), static_cast<float>(GetHeight())};
     }
 
@@ -334,6 +334,14 @@ class Window {
      */
     inline int GetFPS() const {
         return ::GetFPS();
+    }
+
+    /**
+     * Draw current FPS
+     */
+    inline Window& DrawFPS(int posX = 10, int posY = 10) {
+        ::DrawFPS(posX, posY);
+        return *this;
     }
 
     /**
