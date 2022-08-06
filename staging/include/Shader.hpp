@@ -170,11 +170,12 @@ class Shader : public ::Shader {
     }
 
  private:
-    inline void set(const ::Shader& shader) {
+    void set(const ::Shader& shader) {
         id = shader.id;
         locs = shader.locs;
     }
 };
 }  // namespace raylib
+using RShader = raylib::Shader;
 
 #endif  // RAYLIB_CPP_INCLUDE_SHADER_HPP_

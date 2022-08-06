@@ -97,7 +97,7 @@ class ModelAnimation : public ::ModelAnimation {
     }
 
  private:
-    inline void set(const ::ModelAnimation& model) {
+    void set(const ::ModelAnimation& model) {
         boneCount = model.boneCount;
         bones = model.bones;
         frameCount = model.frameCount;
@@ -105,5 +105,6 @@ class ModelAnimation : public ::ModelAnimation {
     }
 };
 }  // namespace raylib
+using RModelAnimation = raylib::ModelAnimation;
 
 #endif  // RAYLIB_CPP_INCLUDE_MODELANIMATION_HPP_

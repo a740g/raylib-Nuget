@@ -245,7 +245,7 @@ class Color : public ::Color {
     inline static Color RayWhite() { return RAYWHITE; }
 
  private:
-    inline void set(const ::Color& color) {
+    void set(const ::Color& color) {
         r = color.r;
         g = color.g;
         b = color.b;
@@ -254,5 +254,6 @@ class Color : public ::Color {
 };
 
 }  // namespace raylib
+using RColor = raylib::Color;
 
 #endif  // RAYLIB_CPP_INCLUDE_COLOR_HPP_

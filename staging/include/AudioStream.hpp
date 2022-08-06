@@ -178,7 +178,7 @@ class AudioStream : public ::AudioStream {
     }
 
  private:
-    inline void set(const ::AudioStream& stream) {
+    void set(const ::AudioStream& stream) {
         buffer = stream.buffer;
         sampleRate = stream.sampleRate;
         sampleSize = stream.sampleSize;
@@ -186,5 +186,6 @@ class AudioStream : public ::AudioStream {
     }
 };
 }  // namespace raylib
+using RAudioStream = raylib::AudioStream;
 
 #endif  // RAYLIB_CPP_INCLUDE_AUDIOSTREAM_HPP_

@@ -211,7 +211,7 @@ class Wave : public ::Wave {
     }
 
  private:
-    inline void set(const ::Wave& wave) {
+    void set(const ::Wave& wave) {
         frameCount = wave.frameCount;
         sampleRate = wave.sampleRate;
         sampleSize = wave.sampleSize;
@@ -221,5 +221,6 @@ class Wave : public ::Wave {
 };
 
 }  // namespace raylib
+using RWave = raylib::Wave;
 
 #endif  // RAYLIB_CPP_INCLUDE_WAVE_HPP_

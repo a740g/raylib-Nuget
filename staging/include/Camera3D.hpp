@@ -149,7 +149,7 @@ class Camera3D : public ::Camera3D {
     }
 
  private:
-    inline void set(const ::Camera3D& camera) {
+    void set(const ::Camera3D& camera) {
         position = camera.position;
         target = camera.target;
         up = camera.up;
@@ -160,5 +160,7 @@ class Camera3D : public ::Camera3D {
 
 typedef Camera3D Camera;
 }  // namespace raylib
+using RCamera = raylib::Camera;
+using RCamera3D = raylib::Camera3D;
 
 #endif  // RAYLIB_CPP_INCLUDE_CAMERA3D_HPP_

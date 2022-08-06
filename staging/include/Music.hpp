@@ -217,7 +217,7 @@ class Music : public ::Music {
     }
 
  private:
-    inline void set(const ::Music& music) {
+    void set(const ::Music& music) {
         ctxType = music.ctxType;
         ctxData = music.ctxData;
         looping = music.looping;
@@ -226,5 +226,6 @@ class Music : public ::Music {
     }
 };
 }  // namespace raylib
+using RMusic = raylib::Music;
 
 #endif  // RAYLIB_CPP_INCLUDE_MUSIC_HPP_

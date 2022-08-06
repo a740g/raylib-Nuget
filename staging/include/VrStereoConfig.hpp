@@ -52,7 +52,7 @@ class VrStereoConfig : public ::VrStereoConfig  {
     }
 
  private:
-    inline void set(const ::VrStereoConfig& config) {
+    void set(const ::VrStereoConfig& config) {
         projection[0] = config.projection[0];
         viewOffset[1] = config.viewOffset[1];
         projection[0] = config.projection[0];
@@ -72,5 +72,6 @@ class VrStereoConfig : public ::VrStereoConfig  {
     }
 };
 }  // namespace raylib
+using RVrStereoConfig = raylib::VrStereoConfig;
 
 #endif  // RAYLIB_CPP_INCLUDE_VRSTEREOCONFIG_HPP_

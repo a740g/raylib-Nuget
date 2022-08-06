@@ -283,7 +283,7 @@ class Mesh : public ::Mesh {
     }
 
  private:
-    inline void set(const ::Mesh& mesh) {
+    void set(const ::Mesh& mesh) {
         vertexCount = mesh.vertexCount;
         triangleCount = mesh.triangleCount;
         vertices = mesh.vertices;
@@ -302,5 +302,6 @@ class Mesh : public ::Mesh {
     }
 };
 }  // namespace raylib
+using RMesh = raylib::Mesh;
 
 #endif  // RAYLIB_CPP_INCLUDE_MESH_HPP_

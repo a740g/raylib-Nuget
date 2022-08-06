@@ -191,7 +191,7 @@ class Matrix : public ::Matrix {
 #endif
 
  private:
-    inline void set(const ::Matrix& mat) {
+    void set(const ::Matrix& mat) {
         m0 = mat.m0;
         m1 = mat.m1;
         m2 = mat.m2;
@@ -211,6 +211,6 @@ class Matrix : public ::Matrix {
     }
 };
 }  // namespace raylib
-
+using RMatrix = raylib::Matrix;
 
 #endif  // RAYLIB_CPP_INCLUDE_MATRIX_HPP_

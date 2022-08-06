@@ -61,7 +61,7 @@ class Camera2D : public ::Camera2D {
     }
 
  private:
-    inline void set(const ::Camera2D& camera) {
+    void set(const ::Camera2D& camera) {
         offset = camera.offset;
         target = camera.target;
         rotation = camera.rotation;
@@ -69,5 +69,6 @@ class Camera2D : public ::Camera2D {
     }
 };
 }  // namespace raylib
+using RCamera2D = raylib::Camera2D;
 
 #endif  // RAYLIB_CPP_INCLUDE_CAMERA2D_HPP_

@@ -202,11 +202,12 @@ class Sound : public ::Sound {
     }
 
  private:
-    inline void set(const ::Sound& sound) {
+    void set(const ::Sound& sound) {
         frameCount = sound.frameCount;
         stream = sound.stream;
     }
 };
 }  // namespace raylib
+using RSound = raylib::Sound;
 
 #endif  // RAYLIB_CPP_INCLUDE_SOUND_HPP_
