@@ -1,3 +1,6 @@
 *.exe
 *.EXE
 *.Exe
+*.nupkg
+*.Nupkg
+*.NUPKG
