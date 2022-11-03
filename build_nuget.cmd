@@ -24,8 +24,14 @@ if not exist ".\staging\" (
 
 rem Check if we have nuget.exe
 if not exist ".\nuget.exe" (
-    echo Error: nuget.exe missing!
-    goto end
+    rem Attempt to download the latest nuget.exe
+    curl -L https://dist.nuget.org/win-x86-commandline/latest/nuget.exe -o nuget.exe
+    
+    rem Check again
+    if not exist ".\nuget.exe" (
+        echo Error: nuget.exe missing!
+        goto end
+    )
 )
 
 rem Update nuget.exe
