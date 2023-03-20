@@ -45,7 +45,7 @@ class Window {
      */
     inline void Init(int width = 800, int height = 450, const std::string& title = "raylib") {
         ::InitWindow(width, height, title.c_str());
-        if (!IsWindowReady()) {
+        if (!::IsWindowReady()) {
             throw RaylibException("Failed to create Window");
         }
     }
@@ -71,13 +71,6 @@ class Window {
      */
     inline bool IsCursorOnScreen() const {
         return ::IsCursorOnScreen();
-    }
-
-    /**
-     * Check if window has been initialized successfully
-     */
-    inline static bool IsReady() {
-        return ::IsWindowReady();
     }
 
     /**
@@ -356,14 +349,14 @@ class Window {
      * Set clipboard text content
      */
     inline void SetClipboardText(const std::string& text) {
-        SetClipboardText(text.c_str());
+        ::SetClipboardText(text.c_str());
     }
 
     /**
      * Get clipboard text content
      */
-    inline const std::string& GetClipboardText() {
-        return GetClipboardText();
+    inline const std::string GetClipboardText() {
+        return ::GetClipboardText();
     }
 
     /**
@@ -400,6 +393,13 @@ class Window {
      */
     inline double GetTime() const {
         return ::GetTime();
+    }
+
+    /**
+     * Check if window has been initialized successfully
+     */
+    inline static bool IsReady() {
+        return ::IsWindowReady();
     }
 };
 }  // namespace raylib

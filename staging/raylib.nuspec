@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>raylib</id>
-    <version>4.2.0.2</version>
+    <version>4.5.0.0</version>
     <title>raylib Game Programming Library</title>
     <authors>Ramon Santamaria, Rob Loach, Samuel Gomes and contributors</authors>
     <owners>Samuel Gomes</owners>
@@ -15,7 +15,7 @@
     <readme>build\native\README.md</readme>
     <summary>This software is provided "as-is", without any express or implied warranty. In no event will the authors be held liable for any damages arising from the use of this software.</summary>
     <releaseNotes>Please refer to the online release notes at https://raw.githubusercontent.com/raysan5/raylib/master/CHANGELOG</releaseNotes>
-    <copyright>Copyright (c) 2013-2022 Ramon Santamaria (@raysan5)</copyright>
+    <copyright>Copyright (c) 2013-2023 Ramon Santamaria (@raysan5)</copyright>
     <language>en-US</language>
     <tags>Native games</tags>
   </metadata>

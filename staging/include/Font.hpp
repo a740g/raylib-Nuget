@@ -101,7 +101,11 @@ class Font : public ::Font {
     }
 
     void Unload() {
-        UnloadFont(*this);
+        // Protect against calling UnloadFont() twice.
+        if (baseSize != 0) {
+            UnloadFont(*this);
+            baseSize = 0;
+        }
     }
 
     GETTERSETTER(int, BaseSize, baseSize)
@@ -203,7 +207,7 @@ class Font : public ::Font {
      * Returns if the font is ready to be used.
      */
     bool IsReady() {
-        return baseSize > 0;
+        return ::IsFontReady(*this);
     }
 
     /**

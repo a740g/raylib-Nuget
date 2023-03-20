@@ -95,7 +95,11 @@ class Sound : public ::Sound {
      * Unload sound
      */
     inline void Unload() {
-        ::UnloadSound(*this);
+        // Protect against calling UnloadSound() twice.
+        if (frameCount != 0) {
+            ::UnloadSound(*this);
+            frameCount = 0;
+        }
     }
 
     /**
@@ -127,22 +131,6 @@ class Sound : public ::Sound {
      */
     inline Sound& Resume() {
         ::ResumeSound(*this);
-        return *this;
-    }
-
-    /**
-     * Play a sound (using multichannel buffer pool)
-     */
-    inline Sound& PlayMulti() {
-        ::PlaySoundMulti(*this);
-        return *this;
-    }
-
-    /**
-     * Stop any sound playing (using multichannel buffer pool)
-     */
-    inline Sound& StopMulti() {
-        ::StopSoundMulti();
         return *this;
     }
 
@@ -207,14 +195,7 @@ class Sound : public ::Sound {
      * @return True or false depending on whether the Sound buffer is loaded.
      */
     bool IsReady() const {
-        return stream.buffer != nullptr;
-    }
-
-    /**
-     * Get number of sounds playing in the multichannel
-     */
-    int GetPlaying() {
-        return ::GetSoundsPlaying();
+        return ::IsSoundReady(*this);
     }
 
  private:
