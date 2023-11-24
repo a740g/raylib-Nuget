@@ -1,5 +1,5 @@
 @rem NT command script to automate building Nuget packages for nuget.org
-@rem Copyright (c) 2022, Samuel Gomes
+@rem Copyright (c) 2023, Samuel Gomes
 @rem
 @echo off
 

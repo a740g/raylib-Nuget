@@ -37,7 +37,7 @@ class ModelAnimation : public ::ModelAnimation {
      * Load model animations from file
      */
     static std::vector<ModelAnimation> Load(const std::string& fileName) {
-        unsigned int count = 0;
+        int count = 0;
         ::ModelAnimation* modelAnimations = ::LoadModelAnimations(fileName.c_str(), &count);
         std::vector<ModelAnimation> mats(modelAnimations, modelAnimations + count);
 
@@ -96,7 +96,7 @@ class ModelAnimation : public ::ModelAnimation {
         return ::IsModelAnimationValid(model, *this);
     }
 
- private:
+ protected:
     void set(const ::ModelAnimation& model) {
         boneCount = model.boneCount;
         frameCount = model.frameCount;

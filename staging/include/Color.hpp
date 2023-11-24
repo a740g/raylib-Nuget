@@ -65,6 +65,14 @@ class Color : public ::Color {
         return ::ColorToInt(*this);
     }
 
+    inline std::string ToString() const {
+        return TextFormat("Color(%d, %d, %d, %d)", r, g, b, a);
+    }
+
+    inline operator std::string() const {
+        return ToString();
+    }
+
     /**
      * Returns color with alpha applied, alpha goes from 0.0f to 1.0f
      */
@@ -196,6 +204,27 @@ class Color : public ::Color {
     }
 
     /**
+     * Get color multiplied with another color
+     */
+    inline Color Tint(::Color tint) {
+        return ::ColorTint(*this, tint);
+    }
+
+    /**
+     * Get color with brightness correction, brightness factor goes from -1.0f to 1.0f
+     */
+    inline Color Brightness(float factor) {
+        return ::ColorBrightness(*this, factor);
+    }
+
+    /**
+     * Get color with contrast correction, contrast values between -1.0f and 1.0f
+     */
+    inline Color Contrast(float contrast) {
+        return ::ColorContrast(*this, contrast);
+    }
+
+    /**
      * Returns color with alpha applied, alpha goes from 0.0f to 1.0f
      */
     Color Alpha(float alpha) const {
@@ -236,7 +265,7 @@ class Color : public ::Color {
     inline static Color Magenta() { return MAGENTA; }
     inline static Color RayWhite() { return RAYWHITE; }
 
- private:
+ protected:
     void set(const ::Color& color) {
         r = color.r;
         g = color.g;
