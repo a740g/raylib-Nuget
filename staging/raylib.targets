@@ -8,38 +8,39 @@
   </PropertyGroup>
   <PropertyGroup>
     <raylib_CoreLibs>
-			$(raylibLib)raylib$(raylibSuffix).lib;
-			winmm.lib
-		</raylib_CoreLibs>
+      $(raylibLib)raylib$(raylibSuffix).lib;
+      winmm.lib
+    </raylib_CoreLibs>
     <raylib_CoreDLLs>$(raylibLib)raylib.dll</raylib_CoreDLLs>
   </PropertyGroup>
   <ItemDefinitionGroup>
     <ClCompile>
       <PreprocessorDefinitions>
-				%(PreprocessorDefinitions);
-				PLATFORM_DESKTOP;
-				GRAPHICS_API_OPENGL_33
-			</PreprocessorDefinitions>
+        %(PreprocessorDefinitions);
+        PLATFORM_DESKTOP;
+        GRAPHICS_API_OPENGL_33
+      </PreprocessorDefinitions>
     </ClCompile>
     <ClCompile>
       <AdditionalIncludeDirectories>
-				$(MSBuildThisFileDirectory)include\;
-				%(AdditionalIncludeDirectories)
-			</AdditionalIncludeDirectories>
+        $(MSBuildThisFileDirectory)include\;
+        %(AdditionalIncludeDirectories)
+      </AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup>
     <Link>
       <AdditionalDependencies>
-				$(raylib_CoreLibs);
-				%(AdditionalDependencies)
-			</AdditionalDependencies>
+        $(raylib_CoreLibs);
+        %(AdditionalDependencies)
+      </AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <PropertyPageSchema Include="$(MSBuildThisFileDirectory)\raylibUI.xml" />
   </ItemGroup>
-  <Target Name="CopyDLLs" AfterTargets="AfterBuild" Condition="'$(raylib_LibraryType)'=='DynamicRelease'">
+  <Target Name="CopyDLLs" AfterTargets="AfterBuild"
+    Condition="'$(raylib_LibraryType)'=='DynamicRelease'">
     <PropertyGroup>
       <AllDLLs>$(raylib_CoreDLLs);</AllDLLs>
     </PropertyGroup>

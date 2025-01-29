@@ -1,0 +1,86 @@
+name: Build NuGet Package
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Download and extract latest 32-bit and 64-bit raylib releases
+      run: |
+        $release = Invoke-RestMethod -Uri 'https://api.github.com/repos/raysan5/raylib/releases/latest'
+        
+        $asset32 = $release.assets | Where-Object { $_.name -match "win32.*msvc.*\.zip" }
+        if (-not $asset32) {
+          throw "Could not find the 32-bit asset. Please check the release."
+        } else {
+          Invoke-WebRequest -Uri $asset32.browser_download_url -OutFile 'raylib_win32.zip'
+          Expand-Archive -Path 'raylib_win32.zip' -DestinationPath '.\raylib32'
+        }
+
+        $asset64 = $release.assets | Where-Object { $_.name -match "win64.*msvc.*\.zip" }
+        if (-not $asset64) {
+          throw "Could not find the 64-bit asset. Please check the release."
+        } else {
+          Invoke-WebRequest -Uri $asset64.browser_download_url -OutFile 'raylib_win64.zip'
+          Expand-Archive -Path 'raylib_win64.zip' -DestinationPath '.\raylib64'
+        }
+      shell: pwsh
+
+    - name: Download and extract latest raylib-cpp release
+      run: |
+        $releaseCpp = Invoke-RestMethod -Uri 'https://api.github.com/repos/RobLoach/raylib-cpp/releases/latest'
+        $zipballUrl = $releaseCpp.zipball_url
+        Invoke-WebRequest -Uri $zipballUrl -OutFile 'raylib-cpp.zip'
+        Expand-Archive -Path 'raylib-cpp.zip' -DestinationPath '.\raylib-cpp'
+      shell: pwsh
+
+    - name: Prepare staging directory
+      run: |
+        $staging = "staging"
+        $raylib32Root = Get-ChildItem -Directory -Path .\raylib32 | Select-Object -First 1
+        $raylib64Root = Get-ChildItem -Directory -Path .\raylib64 | Select-Object -First 1
+        $raylibCppRoot = Get-ChildItem -Directory -Path .\raylib-cpp | Select-Object -First 1
+        $includeDir = Join-Path $staging "include"
+        $libWin32Dir = Join-Path $staging "lib\win32"
+        $libX64Dir = Join-Path $staging "lib\x64"
+
+        New-Item -Path $includeDir -ItemType Directory -Force
+        New-Item -Path $libWin32Dir -ItemType Directory -Force
+        New-Item -Path $libX64Dir -ItemType Directory -Force
+
+        Get-ChildItem -Path $raylib64Root.FullName | ForEach-Object {
+          if (-not $_.PsIsContainer) {
+            Copy-Item -Path $_.FullName -Destination $staging -Force
+          }
+        }
+
+        Copy-Item -Path (Join-Path $raylib32Root.FullName "include\*") -Destination $includeDir -Recurse -Force
+        Copy-Item -Path (Join-Path $raylib32Root.FullName "lib\*") -Destination $libWin32Dir -Recurse -Force
+        Copy-Item -Path (Join-Path $raylib64Root.FullName "lib\*") -Destination $libX64Dir -Recurse -Force
+        Copy-Item -Path (Join-Path $raylibCppRoot.FullName "include\*.hpp") -Destination $includeDir -Recurse -Force
+      shell: pwsh
+
+    - name: Change to staging directory and build package
+      run: |
+        Set-Location -Path ./staging
+        nuget pack raylib.nuspec
+        Move-Item -Path *.nupkg -Destination ..
+        Set-Location -Path ..
+      shell: pwsh
+
+    - name: Upload package as artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: raylib-nuget
+        path: '*.nupkg'
