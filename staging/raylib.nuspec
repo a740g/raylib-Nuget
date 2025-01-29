@@ -15,9 +15,7 @@
       simple and easy-to-use library designed to facilitate video game programming. It is highly
       inspired by the Borland BGI graphics library and the XNA framework. raylib is especially
       well-suited for prototyping, tooling, graphical applications, embedded systems, and
-      educational purposes.
-
-      This package also includes raylib-cpp, a C++ wrapper library for raylib by Rob Loach. This C++
+      educational purposes. This package also includes raylib-cpp, a C++ wrapper library for raylib by Rob Loach. This C++
       header provides object-oriented wrappers around raylib's struct interfaces. While raylib-cpp
       is not required to use raylib in C++, the classes align the use of the raylib API more closely
       with C++'s language paradigms.</description>
