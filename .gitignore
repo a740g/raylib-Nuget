@@ -1,6 +1,20 @@
+# Ignore all executable files
 *.exe
-*.EXE
-*.Exe
+
+# Ignore built NuGet packages
 *.nupkg
-*.Nupkg
-*.NUPKG
+
+# Ignore Visual Studio Code stuff
+.vscode
+.fake
+
+# Ignore Visual Studio stuff
+.vs
+
+# Ignore macOS stuff
+.DS_Store
+*.command
+
+# Ignore Windows stuff
+Thumbs.db
+desktop.ini
