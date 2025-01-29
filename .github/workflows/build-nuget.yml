@@ -14,7 +14,7 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: Download and extract latest 32-bit and 64-bit raylib releases
       run: |
@@ -80,7 +80,7 @@ jobs:
       shell: pwsh
 
     - name: Upload package as artifact
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: raylib-nuget
         path: '*.nupkg'
