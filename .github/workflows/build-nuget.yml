@@ -73,7 +73,7 @@ jobs:
 
     - name: Change to staging directory and build package
       run: |
-        Set-Location -Path ./staging
+        Set-Location -Path .\staging
         nuget pack raylib.nuspec
         Move-Item -Path *.nupkg -Destination ..
         Set-Location -Path ..
