@@ -1,20 +1,10 @@
-# Ignore all executable files
+.devin/
+.fake/
+.vs/
+.vscode/
 *.exe
-
-# Ignore built NuGet packages
 *.nupkg
-
-# Ignore Visual Studio Code stuff
-.vscode
-.fake
-
-# Ignore Visual Studio stuff
-.vs
-
-# Ignore macOS stuff
 .DS_Store
 *.command
-
-# Ignore Windows stuff
 Thumbs.db
 desktop.ini

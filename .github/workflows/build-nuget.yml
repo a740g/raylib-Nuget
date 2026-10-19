@@ -37,20 +37,11 @@ jobs:
           }
         shell: pwsh
 
-      - name: Download and extract latest raylib-cpp release
-        run: |
-          $releaseCpp = Invoke-RestMethod -Uri 'https://api.github.com/repos/RobLoach/raylib-cpp/releases/latest'
-          $zipballUrl = $releaseCpp.zipball_url
-          Invoke-WebRequest -Uri $zipballUrl -OutFile 'raylib-cpp.zip'
-          Expand-Archive -Path 'raylib-cpp.zip' -DestinationPath '.\raylib-cpp'
-        shell: pwsh
-
       - name: Prepare staging directory
         run: |
           $staging = "staging"
           $raylib32Root = Get-ChildItem -Directory -Path .\raylib32 | Select-Object -First 1
           $raylib64Root = Get-ChildItem -Directory -Path .\raylib64 | Select-Object -First 1
-          $raylibCppRoot = Get-ChildItem -Directory -Path .\raylib-cpp | Select-Object -First 1
           $includeDir = Join-Path $staging "include"
           $libWin32Dir = Join-Path $staging "lib\win32"
           $libX64Dir = Join-Path $staging "lib\x64"
@@ -68,7 +59,6 @@ jobs:
           Copy-Item -Path (Join-Path $raylib32Root.FullName "include\*") -Destination $includeDir -Recurse -Force
           Copy-Item -Path (Join-Path $raylib32Root.FullName "lib\*") -Destination $libWin32Dir -Recurse -Force
           Copy-Item -Path (Join-Path $raylib64Root.FullName "lib\*") -Destination $libX64Dir -Recurse -Force
-          Copy-Item -Path (Join-Path $raylibCppRoot.FullName "include\*.hpp") -Destination $includeDir -Recurse -Force
         shell: pwsh
 
       - name: Change to staging directory and build package
